@@ -1,0 +1,90 @@
+.contact-home {
+    display: flex;
+    background-color: rgb(235, 235, 235);
+
+    .menu-bar {
+        background-color: rgb(66, 66, 66);
+        left: 0;
+        height: 100%;
+        // width: 30px;
+        display: block;
+        padding: 20px;
+        &.show {
+            display: block;
+            width: 300px
+        }
+
+        .menu-header{
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            align-items: center;
+            
+            .logo {
+                width: auto;
+            }
+            .toggle {
+                color: #fff;
+                font-size: 20px;
+                font-weight: bold;
+            }
+        }
+
+        .menu-item {
+            color: #fff;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            border-bottom: 1px solid #666666;
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+    }
+    .contact-main {
+        width: 100%;
+        display: block;
+        padding: 20px 100px;
+        .header {
+            text-align: center;
+            justify-content: center;
+            padding: 20px;
+            
+            .title {
+                font-size: 32px;
+                font-weight: bold;
+            }
+            .line {
+                border: 1px solid #666;
+                width: 100%;
+                margin-top: 30px;
+            }
+        }
+        .contact-table {
+            padding: 50px;
+            .button-edit {
+                background-color: rgb(8, 194, 169);
+                outline: none;
+                padding: 10px 20px; 
+                text-align: center;
+                width: 150px;
+                border-radius: 5px;
+                border: 1px solid rgb(190, 190, 190);
+                color: #fff;
+            }
+            .button-delete{
+                background-color: rgb(219, 58, 58);
+                outline: none;
+                padding: 10px 20px; 
+                text-align: center;
+                width: 150px;
+                border-radius: 5px;
+                border: 1px solid rgb(190, 190, 190);
+                color: #fff;
+            }
+            img {
+                border-radius: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}
