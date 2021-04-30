@@ -44,6 +44,9 @@ const Home = () => {
 
     const deleteHandler = (id:string) => {
         DeleteContact(id).then((res)=>{
+            if(res) {
+                alert('sukses')
+            }
             console.log(res,'apani4')
         })
     }
@@ -102,7 +105,7 @@ const Home = () => {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                            {contactList.map((res) => (
+                            {contactList.map((res, i) => (
                                 <StyledTableRow key={res.id}>
                                     <StyledTableCell align="left">
                                         <img src={defaultAvatar(res.photo)} alt="photo" style={{width: '50px', height: '50px'}} />

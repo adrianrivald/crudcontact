@@ -2,44 +2,6 @@
     display: flex;
     background-color: rgb(235, 235, 235);
 
-    .menu-bar {
-        background-color: rgb(66, 66, 66);
-        left: 0;
-        height: 100%;
-        // width: 30px;
-        display: block;
-        padding: 20px;
-        &.show {
-            display: block;
-            width: 300px
-        }
-
-        .menu-header{
-            display: flex;
-            justify-content: space-between;
-            text-align: center;
-            align-items: center;
-            
-            .logo {
-                width: auto;
-            }
-            .toggle {
-                color: #fff;
-                font-size: 20px;
-                font-weight: bold;
-            }
-        }
-
-        .menu-item {
-            color: #fff;
-            margin-top: 50px;
-            margin-bottom: 50px;
-            border-bottom: 1px solid #666666;
-            &:hover {
-                opacity: 0.5;
-            }
-        }
-    }
     .contact-main {
         width: 100%;
         display: block;
