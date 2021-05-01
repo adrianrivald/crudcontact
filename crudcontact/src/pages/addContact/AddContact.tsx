@@ -10,6 +10,7 @@ import { useHistory, useParams } from 'react-router';
 import { GetEditContact } from '../../api/GetEditContact';
 import { PostEditContact } from '../../api/PostEditContact';
 import { PostAddContact } from '../../api/PostAddContact';
+import SubmitButton from '../../components/submitButton/SubmitButton';
 
 const AddContact = () => {
     const { id }: any = useParams();
@@ -115,9 +116,7 @@ const AddContact = () => {
                         />
                     </div>
                 </div>
-                <div className="submit">
-                    <button className="submit-button" onClick={handleSubmit}>Submit</button>
-                </div>
+                <SubmitButton handleSubmit={handleSubmit} value="Submit" />
             </div>
         </div>
     )

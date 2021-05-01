@@ -9,6 +9,7 @@ import { defaultAvatar } from '../../helpers/defaultAvatar';
 import { useHistory, useParams } from 'react-router';
 import { GetEditContact } from '../../api/GetEditContact';
 import { PostEditContact } from '../../api/PostEditContact';
+import SubmitButton from '../../components/submitButton/SubmitButton';
 
 const EditContact = () => {
     const { id }: any = useParams();
@@ -53,7 +54,7 @@ const EditContact = () => {
         const file = e.target.files[0];
         if (e.target.files.length) {
           setPhoto({
-            preview: URL.createObjectURL(file),
+            preview: file && URL.createObjectURL(file),
             raw: file,
           });
         }
@@ -124,9 +125,7 @@ const EditContact = () => {
                         />
                     </div>
                 </div>
-                <div className="submit">
-                    <button className="submit-button" onClick={handleSubmit}>Submit</button>
-                </div>
+                <SubmitButton handleSubmit={handleSubmit} value="Submit" /> 
             </div>
         </div>
     )

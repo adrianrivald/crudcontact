@@ -19,6 +19,9 @@
         
         .logo {
             width: auto;
+            img {
+                width: 120px;
+            }
         }
         .toggle {
             cursor: pointer;
@@ -31,11 +34,18 @@
     .menu-item {
         cursor: pointer;
         color: #fff;
-        margin-top: 50px;
-        margin-bottom: 50px;
-        border-bottom: 1px solid #666666;
+        margin-top: 40px;
         &:hover {
             opacity: 0.5;
+        }
+
+        .text {
+            margin-left: 10px;
+        }
+        .line {
+            border: 1px solid #666666;
+            margin-bottom: 30px;
+            margin-top: 15px;
         }
     }
 }

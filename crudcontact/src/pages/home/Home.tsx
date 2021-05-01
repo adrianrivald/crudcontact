@@ -16,10 +16,13 @@ import Paper from '@material-ui/core/Paper';
 import { defaultAvatar } from '../../helpers/defaultAvatar';
 import { useHistory } from 'react-router';
 import { DeleteContact } from '../../api/DeleteContact';
+import SearchBar from '../../components/searchBar/SearchBar';
 
 const Home = () => {
-    const [ contactList, setContactList ] = useState([] as ContactDetailModelType[])
+    const [ contactList, setContactList ] = useState([] as ContactDetailModelType[]);
     const [ isToggleMenu, setIsToggleMenu ] = useState(false);
+    const [ search, setSearch ] = useState('');
+    const [ isFilled, setIsFilled ] = useState(false);
     const history = useHistory();
 
 
@@ -46,9 +49,18 @@ const Home = () => {
         DeleteContact(id).then((res)=>{
             if(res) {
                 alert('sukses')
+                window.location.reload();
             }
             console.log(res,'apani4')
         })
+    }
+
+    const handleChange = (e: any) => {
+        e.preventDefault();
+        const { value } = e.target;
+        setIsFilled(true)
+        setSearch(value)
+        console.log(value, 'apanisearch')
     }
 
     //Table Styling
@@ -92,6 +104,9 @@ const Home = () => {
                     <span className="title">Home</span>
                     <div className="line"/>
                 </div>
+                <div className="search-bar">
+                    <SearchBar value={search} onChange={handleChange} placeHolder="Find Contact" />
+                </div>
                 <div className="contact-table">
                     <TableContainer component={Paper}>
                         <Table className={classes.table} aria-label="customized table">
@@ -105,7 +120,7 @@ const Home = () => {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                            {contactList.map((res, i) => (
+                            {!search ? contactList.map((res, i) => (
                                 <StyledTableRow key={res.id}>
                                     <StyledTableCell align="left">
                                         <img src={defaultAvatar(res.photo)} alt="photo" style={{width: '50px', height: '50px'}} />
@@ -120,22 +135,36 @@ const Home = () => {
                                         <button className="button-delete" onClick={() => deleteHandler(res.id)}>Remove</button>
                                     </StyledTableCell>
                                 </StyledTableRow>
-                            ))}
+                            )) : contactList
+                            // eslint-disable-next-line
+                            .filter(res => {
+                                if (!search) return true
+                                if (res.firstName.toLowerCase().includes(search) || res.lastName.toLowerCase().includes(search)) {
+                                    return true
+                            }
+                            })
+                            .map(res =>  (
+                                <StyledTableRow key={res.id}>
+                                    <StyledTableCell align="left">
+                                        <img src={defaultAvatar(res.photo)} alt="photo" style={{width: '50px', height: '50px'}} />
+                                    </StyledTableCell>
+                                    <StyledTableCell align="left">{res.firstName}</StyledTableCell>
+                                    <StyledTableCell align="left">{res.lastName}</StyledTableCell>
+                                    <StyledTableCell align="left">{res.age}</StyledTableCell>
+                                    <StyledTableCell align="center">
+                                        <button className="button-edit" onClick={() => goToEdit(res.id)}>Edit</button>
+                                    </StyledTableCell>
+                                    <StyledTableCell align="center">
+                                        <button className="button-delete" onClick={() => deleteHandler(res.id)}>Remove</button>
+                                    </StyledTableCell>
+                                </StyledTableRow>
+                                ))
+                            }
                             </TableBody>
                         </Table>
                     </TableContainer>
                 </div>
             </div>
-
-            {
-                contactList.map((res) => {
-                    return (
-                        <div className="contact-list">
-                            {/* {res.age} */}
-                        </div>
-                    )
-                })
-            }
         </div>
     )
 }

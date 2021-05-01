@@ -21,9 +21,14 @@
                 margin-top: 30px;
             }
         }
+        .search-bar {
+            width: 200px;
+        }
         .contact-table {
-            padding: 50px;
+            // padding: 50px;
+            margin-top: 20px;
             .button-edit {
+                cursor: pointer;
                 background-color: rgb(8, 194, 169);
                 outline: none;
                 padding: 10px 20px; 
@@ -34,6 +39,7 @@
                 color: #fff;
             }
             .button-delete{
+                cursor: pointer;
                 background-color: rgb(219, 58, 58);
                 outline: none;
                 padding: 10px 20px; 

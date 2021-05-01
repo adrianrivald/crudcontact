@@ -14,12 +14,12 @@ export const PostAddContact = async (
   // formData.append('photo', file.raw);
 
   const result: any = await axios
-    .post(`https://simple-contact-crud.herokuapp.com/contact`, 
+    .post(`${process.env.REACT_APP_API}/contact`, 
       {
         firstName : editContactForm.firstName,
         lastName: editContactForm.lastName,
         age: editContactForm.age,
-        photo: file.raw
+        photo: file.preview
       }
     )
     .then(({ data }) => {
