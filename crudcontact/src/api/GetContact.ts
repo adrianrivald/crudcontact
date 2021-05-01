@@ -4,7 +4,7 @@ import axios from 'axios';
 export const GetContact = async () => {
  
   const result: any = await axios
-    .get(`${process.env.REACT_APP_API}/contact`)
+    .get(`https://simple-contact-crud.herokuapp.com/contact`)
     .then(({ data }) => {
       return data.data;
     })

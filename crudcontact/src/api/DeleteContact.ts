@@ -6,7 +6,7 @@ id: string,
 ) => {
 
   const result: any = await axios
-    .delete(`${process.env.REACT_APP_API}/contact/${id}`,
+    .delete(`https://simple-contact-crud.herokuapp.com/contact/${id}`,
     {
         data: {
             id: id

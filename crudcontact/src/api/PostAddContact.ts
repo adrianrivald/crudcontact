@@ -6,15 +6,9 @@ export const PostAddContact = async (
   file: PostPhotoModelType,
   id: string
 ) => {
-
-  // const formData = new FormData();
-  // formData.append('firstName', editContactForm.firstName);
-  // formData.append('lastName', editContactForm.lastName);
-  // formData.append('age', editContactForm.age.toString());
-  // formData.append('photo', file.raw);
-
+  
   const result: any = await axios
-    .post(`${process.env.REACT_APP_API}/contact`, 
+    .post(`https://simple-contact-crud.herokuapp.com/contact`, 
       {
         firstName : editContactForm.firstName,
         lastName: editContactForm.lastName,
